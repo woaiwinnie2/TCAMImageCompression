@@ -135,6 +135,19 @@ class TCAMSimulator:
 
     def get_all_entries_sorted(self):
         return sorted(self.entries, key=lambda x: (x[0], x[1]))
+    
+    def delete_entry(self, tie_breaker_id: int):
+        list_idx = self._find_entry_list_index(tie_breaker_id)
+
+        if list_idx == len(self.entries) - 1:
+            self.entries.pop()
+        else:
+            self.entries[list_idx] = self.entries[-1]
+            self.entries.pop()
+            heapq.heapify(self.entries)
+        
+        return True
+
 
     def __str__(self):
         output_str = [f"TCAM (Width: {self.width}):"]
@@ -177,4 +190,12 @@ if __name__ == "__main__":
 
     tcam.edit_entry(A, new_pattern="XX11XX00", new_value="New A")
     tcam.change_priority(E, new_priority=0)
+    tcam.delete_entry(C)
+
+    for key in search_keys:
+        result = tcam.search(key)
+        if result is not None:
+            print(f"Match found! Value: {result}")
+        else:
+            print(f"No match found.")
     print(tcam)
