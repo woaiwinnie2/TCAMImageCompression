@@ -54,7 +54,7 @@ def encode_block_interval(data_stream, W, h):
     
     encoded_bits = []
     for p in data_stream:
-        encoded = interval_encoding(p, W, h)
+        encoded = interval_encoding(int(p), W, h)
         encoded_bits.append(encoded)
 
     return "".join(encoded_bits)

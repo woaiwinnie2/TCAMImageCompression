@@ -26,7 +26,7 @@ def encode_block_point(data_stream, W, h): #encode 8*8 block
     
     encoded_bits = []
     for p in data_stream:
-        encoded = point_encoding(p, W, h)
+        encoded = point_encoding(int(p), W, h)
         encoded_bits.append(encoded)
 
     return "".join(encoded_bits)
