@@ -1,0 +1,23 @@
+[
+    {
+        "id": "Y",
+        "step": 0,
+        "match": "ternary",
+        "entries": 2280,
+        "key_size": 640
+    },
+    {
+        "id": "U",
+        "step": 0,
+        "match": "ternary",
+        "entries": 570,
+        "key_size": 640
+    },
+    {
+        "id": "V",
+        "step": 0,
+        "match": "ternary",
+        "entries": 570,
+        "key_size": 640
+    }
+]
